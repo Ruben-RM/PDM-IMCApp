@@ -25,14 +25,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:src="@drawable/va_male"
-                app:tint="@color/white"/>
+                app:tint="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -40,7 +40,7 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/male"
                 android:textAllCaps="true"
-                android:textColor="@color/title_text"/>
+                android:textColor="@color/title_text" />
 
         </LinearLayout>
 
@@ -75,6 +75,181 @@
                 android:text="@string/female"
                 android:textAllCaps="true"
                 android:textColor="@color/title_text"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewHeight"
+        app:cardBackgroundColor="@color/bg_comp"
+        app:cardCornerRadius="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/viewMale"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="true"
+                android:text="@string/height"
+                android:textColor="@color/title_text"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvHeight"
+                android:text="@string/str_height"
+                android:textSize="38sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+
+            <com.google.android.material.slider.RangeSlider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rsHeight"
+                android:contentDescription="height"
+                android:stepSize="1"
+                android:valueFrom="120"
+                android:valueTo="200"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewWeight"
+        app:cardBackgroundColor="@color/bg_comp"
+        app:cardCornerRadius="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/viewHeight"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="true"
+                android:text="@string/weight"
+                android:textColor="@color/title_text"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvWeight"
+                android:text="@string/str_weight"
+                android:textSize="38sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_margin="16dp">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnSubstraactWeight"
+                    android:backgroundTint="@color/bg_fab"
+                    android:src="@drawable/ic_remove"
+                    app:tint="@color/white"
+                    android:layout_marginEnd="16dp"/>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnAddWeight"
+                    android:backgroundTint="@color/bg_fab"
+                    app:tint="@color/white"
+                    android:src="@drawable/ic_add"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewAge"
+        app:cardBackgroundColor="@color/bg_comp"
+        app:cardCornerRadius="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/viewHeight"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/viewWeight">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="true"
+                android:text="@string/age"
+                android:textColor="@color/title_text"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvAge"
+                android:text="@string/str_age"
+                android:textSize="38sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_margin="16dp">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnSubstractAge"
+                    android:backgroundTint="@color/bg_fab"
+                    android:src="@drawable/ic_remove"
+                    app:tint="@color/white"
+                    android:layout_marginEnd="16dp"/>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnAddAge"
+                    android:backgroundTint="@color/bg_fab"
+                    app:tint="@color/white"
+                    android:src="@drawable/ic_add"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
