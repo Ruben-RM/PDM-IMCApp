@@ -5,10 +5,12 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.slider.RangeSlider
 
 class ImcCalculatorActivity : AppCompatActivity() {
@@ -18,8 +20,18 @@ class ImcCalculatorActivity : AppCompatActivity() {
     var isMaleSelected:Boolean = true
     private lateinit var tvHeight:TextView
     private lateinit var rsHeight:RangeSlider
+    private lateinit var tvWeight:TextView
+    private lateinit var btn_subWeight:FloatingActionButton
+    private lateinit var btn_addWeight:FloatingActionButton
+    var weight:Int = 60
+    private lateinit var tvAge:TextView
+    private lateinit var btn_subAge:FloatingActionButton
+    private lateinit var btn_addAge:FloatingActionButton
+    var age:Int = 20
+    private lateinit var btn_calcular:AppCompatButton
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_imc_calculator)
@@ -40,6 +52,13 @@ class ImcCalculatorActivity : AppCompatActivity() {
         viewFemale = findViewById(R.id.viewFemale)
         tvHeight = findViewById(R.id.tvHeight)
         rsHeight = findViewById(R.id.rsHeight)
+        tvWeight = findViewById(R.id.tvWeight)
+        btn_subWeight = findViewById(R.id.btn_subWeight)
+        btn_addWeight = findViewById(R.id.btn_addWeight)
+        tvAge = findViewById(R.id.tvAge)
+        btn_subAge = findViewById(R.id.btn_subAge)
+        btn_addAge = findViewById(R.id.btn_addAge)
+        btn_calcular = findViewById(R.id.btn_calcularIMC)
     }
 
     private fun initListeners()
@@ -59,17 +78,62 @@ class ImcCalculatorActivity : AppCompatActivity() {
         rsHeight.addOnChangeListener{ _, value, _ ->
             tvHeight.text = DecimalFormat("#.##").format(value) + " cm"
         }
+
+        btn_subWeight.setOnClickListener()
+        {
+            if(weight > 1)
+                weight -= 1
+            setWeight()
+        }
+
+        btn_addWeight.setOnClickListener()
+        {
+            if(weight < 1000)
+                weight += 1
+            setWeight()
+        }
+
+        btn_subAge.setOnClickListener()
+        {
+            if(age > 1)
+                age -= 1
+            setAge()
+        }
+
+        btn_addAge.setOnClickListener()
+        {
+            if(age < 120)
+                age += 1
+            setAge()
+        }
+
+        btn_calcular.setOnClickListener()
+        {
+            navigate2result(calculateIMC())
+        }
     }
 
     private fun initUI()
     {
         setGenderColor()
+        setWeight()
+        setAge()
     }
 
     private fun setGenderColor()
     {
         viewMale.setCardBackgroundColor(getBackgroundColor(isMaleSelected))
         viewFemale.setCardBackgroundColor(getBackgroundColor(!isMaleSelected))
+    }
+
+    private fun setWeight()
+    {
+        tvWeight.text = weight.toString()
+    }
+
+    private fun setAge()
+    {
+        tvAge.text = age.toString()
     }
 
     private fun getBackgroundColor(isComponentSelected:Boolean): Int {
@@ -83,5 +147,19 @@ class ImcCalculatorActivity : AppCompatActivity() {
         }
 
         return ContextCompat.getColor(this, colorReference)
+    }
+
+    private fun calculateIMC():Double
+    {
+        var altura = tvHeight.text.toString().toDouble()
+        altura /= 100.0
+        val peso = weight.toDouble()
+
+        return peso/Math.pow(altura, 2.0)
+    }
+
+    private fun navigate2result(IMC:Double)
+    {
+
     }
 }
