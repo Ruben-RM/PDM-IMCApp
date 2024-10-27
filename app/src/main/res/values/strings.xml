@@ -8,4 +8,8 @@
     <string name="str_weight">60</string>
     <string name="age">Edad</string>
     <string name="str_age">20</string>
+    <string name="tu_resultado">Tu resultado:</string>
+    <string name="tv_resultado_numerico">Test</string>
+    <string name="tv_resultado_texto">Test</string>
+    <string name="tv_resultado_texto2">Hola que tal esto es una prueba de un texto que ocupa mucho espacio para probar cosas.</string>
 </resources>
