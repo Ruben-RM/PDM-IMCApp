@@ -1,6 +1,7 @@
 package com.example.imcapp
 
 import android.content.Intent
+import android.icu.text.DecimalFormat
 import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -62,10 +63,10 @@ class ImcResultActivity : AppCompatActivity() {
 
     private fun setResultados()
     {
-        val IMC:Double? = intent.extras?.getDouble("EXTRA_IMC")
+        val calculo_IMC:Double? = intent.extras?.getDouble("EXTRA_IMC")
 
         tv_resultado_texto.text = "Hola wenas"
-        tv_resultado_numerico.text = "$IMC"
+        tv_resultado_numerico.text = DecimalFormat("##.##").format(calculo_IMC)
         tv_resultado_texto2.text = "Hola wenas que tal esto es un texto largo de prueba blablablablabla blablablablablalbalbalba lablba"
     }
 }

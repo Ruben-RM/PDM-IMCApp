@@ -3,11 +3,11 @@ package com.example.imcapp
 import android.content.Intent
 import android.icu.text.DecimalFormat
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import androidx.appcompat.widget.AppCompatEditText
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
@@ -22,6 +22,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
     var isMaleSelected:Boolean = true
     private lateinit var tvHeight:TextView
     private lateinit var rsHeight:RangeSlider
+    var altura:Double = 120.0
     private lateinit var tvWeight:TextView
     private lateinit var btn_subWeight:FloatingActionButton
     private lateinit var btn_addWeight:FloatingActionButton
@@ -78,6 +79,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
         }
 
         rsHeight.addOnChangeListener{ _, value, _ ->
+            altura = value.toDouble()
             tvHeight.text = DecimalFormat("#.##").format(value) + " cm"
         }
 
@@ -136,6 +138,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
     private fun setAge()
     {
         tvAge.text = age.toString()
+        Log.d(TAG, age.toString());
     }
 
     private fun getBackgroundColor(isComponentSelected:Boolean): Int {
@@ -153,12 +156,14 @@ class ImcCalculatorActivity : AppCompatActivity() {
 
     private fun calculateIMC():Double
     {
-        var altura = tvHeight.text.toString().toDouble()
-        altura /= 100.0
+        val altura_metros = altura/100.0
         val peso = weight.toDouble()
+        val IMC = peso/Math.pow(altura_metros, 2.0)
 
-        return peso/Math.pow(altura, 2.0)
+        return IMC
     }
+
+    private val TAG: String = "Test"
 
     private fun navigate2result(IMC:Double)
     {
