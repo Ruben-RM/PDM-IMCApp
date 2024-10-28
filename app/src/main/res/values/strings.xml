@@ -12,4 +12,13 @@
     <string name="tv_resultado_numerico">Test</string>
     <string name="tv_resultado_texto">Test</string>
     <string name="tv_resultado_texto2">Hola que tal esto es una prueba de un texto que ocupa mucho espacio para probar cosas.</string>
+    <string name="peso_insuficiente">Peso insuficiente</string>
+    <string name="peso_normal">Peso normal</string>
+    <string name="demasiado_peso">Demasiado peso</string>
+    <string name="sobrepeso">Sobrepeso</string>
+    <string name="text_insuficiente">Estas por debajo del IMC optimo para tu peso y altura.</string>
+    <string name="text_normal">Estas justo en el IMC optimo para tu peso y altura.</string>
+    <string name="text_pesoalto">Estas algo por encima del IMC optimo para tu peso y altura.</string>
+    <string name="text_obesidad">Estas muy por encima del IMC optimo para tu peso y altura.</string>
+    <string name="text_error_IMC">Ha habido un error, y no se ha calculado correctamente tu IMC. Vuelve a la pantalla anterior y vuelve a intentarlo.</string>
 </resources>
