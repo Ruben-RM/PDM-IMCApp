@@ -33,6 +33,12 @@ class ImcCalculatorActivity : AppCompatActivity() {
     var age:Int = 20
     private lateinit var btn_calcular:AppCompatButton
 
+    /*
+    // Para debug en logcat:
+    private val TAG: String = "Test"
+    Log.d(TAG, age.toString());
+    */
+
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
@@ -138,7 +144,6 @@ class ImcCalculatorActivity : AppCompatActivity() {
     private fun setAge()
     {
         tvAge.text = age.toString()
-        Log.d(TAG, age.toString());
     }
 
     private fun getBackgroundColor(isComponentSelected:Boolean): Int {
@@ -162,8 +167,6 @@ class ImcCalculatorActivity : AppCompatActivity() {
 
         return IMC
     }
-
-    private val TAG: String = "Test"
 
     private fun navigate2result(IMC:Double)
     {
