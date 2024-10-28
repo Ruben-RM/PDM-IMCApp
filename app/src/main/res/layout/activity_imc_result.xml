@@ -8,6 +8,7 @@
     android:background="@color/bg_app"
     tools:context=".ImcResultActivity">
 
+    <!-- TV Título pantalla -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,6 +23,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 
+    <!-- CV Mostrar resultados -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,6 +42,7 @@
             android:orientation="vertical"
             android:gravity="center">
 
+            <!-- TV Resultado 1 -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -51,6 +54,7 @@
                 android:textSize="30sp"
                 android:textAlignment="center"/>
 
+            <!-- TV Mostrar IMC -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,6 +66,7 @@
                 android:textSize="60sp"
                 android:textAlignment="center"/>
 
+            <!-- TV Resultado 2 -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -76,6 +81,7 @@
 
     </androidx.cardview.widget.CardView>
 
+    <!-- Botón Volver a Main -->
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"
         android:layout_height="80dp"

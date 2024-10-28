@@ -3,7 +3,6 @@ package com.example.imcapp
 import android.content.Intent
 import android.icu.text.DecimalFormat
 import android.os.Bundle
-import android.util.Log
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -19,19 +18,19 @@ class ImcCalculatorActivity : AppCompatActivity() {
 
     private lateinit var viewMale:CardView
     private lateinit var viewFemale:CardView
-    var isMaleSelected:Boolean = true
+    private var isMaleSelected:Boolean = true
     private lateinit var tvHeight:TextView
     private lateinit var rsHeight:RangeSlider
-    var altura:Double = 120.0
+    private var altura:Double = 120.0
     private lateinit var tvWeight:TextView
-    private lateinit var btn_subWeight:FloatingActionButton
-    private lateinit var btn_addWeight:FloatingActionButton
-    var weight:Int = 60
+    private lateinit var btnSubWeight:FloatingActionButton
+    private lateinit var btnAddWeight:FloatingActionButton
+    private var weight:Int = 60
     private lateinit var tvAge:TextView
-    private lateinit var btn_subAge:FloatingActionButton
-    private lateinit var btn_addAge:FloatingActionButton
-    var age:Int = 20
-    private lateinit var btn_calcular:AppCompatButton
+    private lateinit var btnSubAge:FloatingActionButton
+    private lateinit var btnAddAge:FloatingActionButton
+    private var age:Int = 20
+    private lateinit var btnCalcular:AppCompatButton
 
     /*
     // Para debug en logcat:
@@ -62,12 +61,12 @@ class ImcCalculatorActivity : AppCompatActivity() {
         tvHeight = findViewById(R.id.tvHeight)
         rsHeight = findViewById(R.id.rsHeight)
         tvWeight = findViewById(R.id.tvWeight)
-        btn_subWeight = findViewById(R.id.btn_subWeight)
-        btn_addWeight = findViewById(R.id.btn_addWeight)
+        btnSubWeight = findViewById(R.id.btn_subWeight)
+        btnAddWeight = findViewById(R.id.btn_addWeight)
         tvAge = findViewById(R.id.tvAge)
-        btn_subAge = findViewById(R.id.btn_subAge)
-        btn_addAge = findViewById(R.id.btn_addAge)
-        btn_calcular = findViewById(R.id.btn_calcularIMC)
+        btnSubAge = findViewById(R.id.btn_subAge)
+        btnAddAge = findViewById(R.id.btn_addAge)
+        btnCalcular = findViewById(R.id.btn_calcularIMC)
     }
 
     private fun initListeners()
@@ -89,35 +88,35 @@ class ImcCalculatorActivity : AppCompatActivity() {
             tvHeight.text = DecimalFormat("#.##").format(value) + " cm"
         }
 
-        btn_subWeight.setOnClickListener()
+        btnSubWeight.setOnClickListener()
         {
             if(weight > 1)
                 weight -= 1
             setWeight()
         }
 
-        btn_addWeight.setOnClickListener()
+        btnAddWeight.setOnClickListener()
         {
             if(weight < 1000)
                 weight += 1
             setWeight()
         }
 
-        btn_subAge.setOnClickListener()
+        btnSubAge.setOnClickListener()
         {
             if(age > 1)
                 age -= 1
             setAge()
         }
 
-        btn_addAge.setOnClickListener()
+        btnAddAge.setOnClickListener()
         {
             if(age < 120)
                 age += 1
             setAge()
         }
 
-        btn_calcular.setOnClickListener()
+        btnCalcular.setOnClickListener()
         {
             navigate2result(calculateIMC())
         }
@@ -138,12 +137,12 @@ class ImcCalculatorActivity : AppCompatActivity() {
 
     private fun setWeight()
     {
-        tvWeight.text = weight.toString()
+        tvWeight.text = "$weight"
     }
 
     private fun setAge()
     {
-        tvAge.text = age.toString()
+        tvAge.text = "$age"
     }
 
     private fun getBackgroundColor(isComponentSelected:Boolean): Int {
@@ -161,18 +160,18 @@ class ImcCalculatorActivity : AppCompatActivity() {
 
     private fun calculateIMC():Double
     {
-        val altura_metros = altura/100.0
+        val alturaMetros = altura/100.0
         val peso = weight.toDouble()
-        val IMC = peso/Math.pow(altura_metros, 2.0)
+        val calculoIMC = peso/Math.pow(alturaMetros, 2.0)
 
-        return IMC
+        return calculoIMC
     }
 
-    private fun navigate2result(IMC:Double)
+    private fun navigate2result(calculoIMC:Double)
     {
         val intentIRA = Intent(this, ImcResultActivity::class.java)
 
-        intentIRA.putExtra("EXTRA_IMC", IMC)
+        intentIRA.putExtra("EXTRA_IMC", calculoIMC)
 
         startActivity(intentIRA)
     }

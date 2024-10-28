@@ -269,11 +269,11 @@
 
     </androidx.cardview.widget.CardView>
 
-    <!-- Boton Calcular -->
+    <!-- Botón Calcular -->
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:text="Calcular IMC"
+        android:text="@string/calcular_imc"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="32sp"
