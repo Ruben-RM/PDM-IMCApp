@@ -86,7 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginHorizontal="10sp"
-        android:text="Re-calcular IMC"
+        android:text="@string/re_calcular_imc"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="32sp"

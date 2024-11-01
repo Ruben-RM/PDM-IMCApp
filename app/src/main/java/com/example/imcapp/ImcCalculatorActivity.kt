@@ -32,10 +32,16 @@ class ImcCalculatorActivity : AppCompatActivity() {
     private var age:Int = 20
     private lateinit var btnCalcular:AppCompatButton
 
+    companion object
+    {
+        const val IMC_KEY = "RESULT"
+    }
+
     /*
     // Para debug en logcat:
-    private val TAG: String = "Test"
-    Log.d(TAG, age.toString());
+    // Luego en Logcat, filtrar por Test
+    //private val TAG: String = "Test"
+    //Log.d(TAG, age.toString());
     */
 
     override fun onCreate(savedInstanceState: Bundle?)
@@ -171,7 +177,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
     {
         val intentIRA = Intent(this, ImcResultActivity::class.java)
 
-        intentIRA.putExtra("EXTRA_IMC", calculoIMC)
+        intentIRA.putExtra(IMC_KEY, calculoIMC)
 
         startActivity(intentIRA)
     }

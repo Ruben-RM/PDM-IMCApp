@@ -10,6 +10,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.imcapp.ImcCalculatorActivity.Companion.IMC_KEY
 
 class ImcResultActivity : AppCompatActivity() {
 
@@ -20,6 +21,7 @@ class ImcResultActivity : AppCompatActivity() {
 
     /*
     // Para debug en logcat:
+    // Luego en Logcat, filtrar por Test
     //private val TAG: String = "Test"
     //Log.d(TAG, age.toString());
     */
@@ -70,7 +72,7 @@ class ImcResultActivity : AppCompatActivity() {
 
     private fun setResultados()
     {
-        val calculoIMC:Double = intent.extras?.getDouble("EXTRA_IMC")?:-1.0
+        val calculoIMC:Double = intent.extras?.getDouble(IMC_KEY)?:-1.0
 
         when
         {
