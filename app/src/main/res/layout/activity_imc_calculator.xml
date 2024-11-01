@@ -19,6 +19,7 @@
         app:cardBackgroundColor="@color/bg_comp_sel"
         app:cardCornerRadius="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginStart="10dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/viewFemale">
@@ -55,6 +56,7 @@
         android:id="@+id/viewFemale"
         app:cardBackgroundColor="@color/bg_comp"
         app:cardCornerRadius="16dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/viewMale">
@@ -92,6 +94,7 @@
         app:cardBackgroundColor="@color/bg_comp"
         app:cardCornerRadius="16dp"
         android:layout_marginTop="32dp"
+        android:layout_marginHorizontal="10dp"
         app:layout_constraintTop_toBottomOf="@id/viewMale"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
@@ -141,6 +144,7 @@
         app:cardCornerRadius="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginStart="10dp"
         app:layout_constraintTop_toBottomOf="@id/viewHeight"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/viewAge">
@@ -209,6 +213,7 @@
         app:cardBackgroundColor="@color/bg_comp"
         app:cardCornerRadius="16dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintTop_toBottomOf="@id/viewHeight"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@id/viewWeight">
@@ -280,6 +285,7 @@
         android:background="@color/bg_button"
         android:id="@+id/btn_calcularIMC"
         android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="10dp"
         app:layout_constraintTop_toBottomOf="@id/viewWeight"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
